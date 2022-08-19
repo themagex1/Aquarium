@@ -1,74 +1,82 @@
 import './App.css';
 import { useState } from "react";
+import DateTime from './Timer';
+
+
 function App() {
   const [lightToggle, setlightToggle] = useState(false);
   const [heaterToggle, setheaterToggle] = useState(false);
   const [waterToggle, setwaterToggle] = useState(false);
-
 
   return (
     <div className="App text-xl md:text-3xl lg:text-[2.5rem] bg-bgColor text-textColor border-4 border-borderColor min-h-screen">
       <div className='grid grid-cols-2 mt-8'>
         <span className='grid grid-cols-2 gap-0 text-left ml-8 md:mb-2 md:text-2xl md:flex md:space-x-3'>
           <span className=''>Sunrise:</span>
-          <span className=''>04:50</span>
+          <span className='text-borderColor'>04:50</span>
         </span>
         <span className='text-right mr-8 md:text-2xl'>
-          Time: 19:51
+          Time: <DateTime></DateTime>
         </span>
       </div>
       <div className='grid grid-cols-2'>
         <span className='grid grid-cols-2 gap-0 text-left ml-8 md:text-2xl md:flex md:space-x-4'>
           <span className=''>Sunset:</span>
-          <span className=''>19:57</span>
+          <span className='text-borderColor'>19:57</span>
         </span>
       </div>
-      <div className='my-8 text-[2.5rem] md:text-[3rem] lg:text-[3.5rem]'>
+      <div className='my-8 text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] animate-bounce'>
         Smart Aquarium
       </div>
 
-      <div className='flex flex-col md:grid md:grid-cols-2'>
+      <div className='flex flex-col md:grid md:grid-cols-2 lg:px-8 xl:px-10 2xl:px-48'>
         <div className='leftColumn mx-auto md:mt-8'>
-          <div className=''>
-            <span className='text-[1.8rem] lg:text-[2.5rem]'>Temperature</span>
-            <div className='mt-2 mb-4 md:text-2xl lg:text-[2rem] lg:mt-4'>
-              27 °C
-            </div>
-          </div>
-          <div className=''>
-            <div className='flex mx-auto'>
-              <div className='flex flex-col w-1/3 md:text-xl lg:text-2xl'>
-                <span>
-                  Max
-                </span>
-                <span>
-                  30 °C
-                </span>
-              </div>
-              <div className='flex flex-col w-1/3 md:text-xl lg:text-2xl'>
-                <span>
-                  Min
-                </span>
-                <span>
-                  24 °C
-                </span>
-              </div>
-              <div className='flex flex-col w-1/3 md:text-xl lg:text-2xl'>
-                <span>
-                  Average
-                </span>
-                <span>
-                  26 °C
-                </span>
+          <div className='border-b border-dashed border-textColor'>
+            <div className=''>
+              <span className='text-[1.8rem] lg:text-[2.5rem] font-semibold'>
+                Temperature
+
+              </span>
+              <div className='mt-2 mb-4 md:text-2xl lg:text-[2rem] lg:mt-4 text-borderColor'>
+                27 °C
               </div>
             </div>
+            <div className=''>
+              <div className='flex mx-auto py-4 divide-x divide-dashed divide-textColor border-t border-dashed border-textColor'>
+                <div className='flex flex-col w-1/3 md:text-xl lg:text-2xl'>
+                  <span className='font-semibold'>
+                    Max
+                  </span>
+                  <span className='text-borderColor'>
+                    30 °C
+                  </span>
+                </div>
+                <div className='flex flex-col w-1/3 md:text-xl lg:text-2xl'>
+                  <span className='font-semibold'>
+                    Min
+                  </span>
+                  <span className='text-borderColor'>
+                    24 °C
+                  </span>
+                </div>
+                <div className='flex flex-col w-1/3 md:text-xl lg:text-2xl'>
+                  <span className='font-semibold'>
+                    Average
+                  </span>
+                  <span className='text-borderColor'>
+                    26 °C
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div className='flex flex-col'>
-            <span className='text-[1.8rem] lg:text-[2.5rem] mt-8'>
+            <span className='text-[1.8rem] lg:text-[2.5rem] mt-8 mb-2'>
               Set light activity duration
             </span>
             <div className='flex mx-auto space-x-6 mt-4 lg:mt-8'>
-              <input className='textField w-[10rem] h-[2.5rem] my-auto placeholder: italic placeholder: text-sm' placeholder='Time max. 300 [min]'>
+              <input type='number' min='1' max='300' className='textField border-2 bg-bgColor text-textColor border-borderColor  w-[10rem] h-[2.5rem] my-auto placeholder: italic placeholder:text-center placeholder: text-sm' placeholder='Time max. 300 [min]'>
 
               </input>
               <button className='button h-[2.5rem] w-[6rem] md:text-xl bg-buttonColor active:bg-spareColor active:text-bgColor font-bold'>
@@ -77,11 +85,11 @@ function App() {
             </div>
           </div>
           <div className='flex flex-col'>
-            <span className='text-[1.8rem] mt-8'>
+            <span className='text-[1.8rem] mt-8 mb-2'>
               Date
             </span>
             <div className='flex mt-4 space-x-6 mx-auto'>
-              <input type='date' className='w-[10rem] textField'>
+              <input type='date' className='w-[10rem] textField border-2 bg-bgColor text-textColor border-borderColor'>
               </input>
               <button className='button h-[2.5rem] w-[6rem] md:text-xl bg-buttonColor active:bg-spareColor active:text-bgColor font-bold'>
                 SEND
@@ -155,7 +163,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className='flex mt-8 mx-auto'>
+          <div className='flex mt-8 mx-auto mb-10'>
             CHART
           </div>
         </div>
