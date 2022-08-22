@@ -99,7 +99,6 @@ function App() {
 
         </div>
 
-
         <div className='rightColumn mx-auto'>
           <div className='flex flex-col'>
             <div className='grid grid-cols-2 gap-9 md:mt-0 mx-auto md:mx-0 md:text-left'>
@@ -162,6 +161,26 @@ function App() {
                 </label>
               </div>
             </div>
+
+            <div className={`${waterToggle ? "grid grid-cols-2 mt-4 gap-3 mx-auto visible transition-all duration-500 scale-y-1" : "invisible scale-y-0 h-0"} `}>
+              <span className='lg:text-[1.7rem] '>Current</span>
+              <span className='my-auto'>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 my-auto text-borderColor" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+              <span className='hidden my-auto'>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7l4-4m0 0l4 4m-4-4v18" />
+                </svg>
+              </span>
+              <span className='hidden my-auto'>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+                </svg>
+              </span>
+            </div>
+
           </div>
           <div className='flex mt-8 mx-auto mb-10'>
             CHART
